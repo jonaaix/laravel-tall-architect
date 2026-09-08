@@ -32,16 +32,18 @@ class GuidelineRegistryTest extends TestCase
    public function it_enables_the_default_set(): void
    {
       $this->assertSame(
-         ['tall-architect', 'planning', 'design-system', 'ux-principles'],
+         ['tall-architect', 'planning', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }
 
    #[Test]
-   public function it_enables_a_guideline_that_is_off_by_default(): void
+   public function it_re_enables_a_guideline_the_project_switched_off(): void
    {
-      config()->set('tall-architect.guidelines.nontech-user', true);
+      config()->set('tall-architect.guidelines.nontech-user', false);
+      $this->assertNotContains('nontech-user', $this->registry->enabled()->keys()->all());
 
+      config()->set('tall-architect.guidelines.nontech-user', true);
       $this->assertContains('nontech-user', $this->registry->enabled()->keys()->all());
    }
 
@@ -63,7 +65,7 @@ class GuidelineRegistryTest extends TestCase
       config()->set('tall-architect.guidelines', []);
 
       $this->assertSame(
-         ['tall-architect', 'planning', 'design-system', 'ux-principles'],
+         ['tall-architect', 'planning', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }

@@ -65,3 +65,41 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 
 ## Contract
 Discussion by default. Reuse before building. Never reset the dev database.
+
+---
+
+# Package: aaix/laravel-tall-architect
+
+The guideline markdown lives in `resources/guidelines/`, the reference in
+`resources/boost/skills/ui-patterns/ui-patterns.md`. Both are shipped verbatim — the package composes them, it does not
+rewrite them.
+
+## One guideline file, always
+
+Boost keys third-party guidelines by composer package name, so a package that ships several markdown files into
+`resources/boost/guidelines/` only ever gets one of them composed — the rest are dropped silently. Hence the single Blade
+guideline that assembles the selected files at render time. Never add a second file to that directory; a test enforces it.
+
+## Adding a guideline
+
+Add the markdown to `resources/guidelines/`, then register it in `GuidelineRegistry::TITLES` and `::DEFAULTS` and add its
+flag to `config/tall-architect.php`. Projects with a published config do not need to touch it — the registry falls back to
+`DEFAULTS` for keys their config does not list.
+
+## Iterating without a release
+
+Wire the package into a project as a path repository; Composer symlinks it, so edits land in `vendor/` immediately:
+
+```bash
+composer config repositories.tall-architect path ../laravel-tall-architect
+composer require aaix/laravel-tall-architect:@dev --dev
+```
+
+The loop is then: edit a file, run `php artisan boost:update`. The update stays necessary because Boost writes the agent
+files statically.
+
+For guideline-only changes the symlink can be skipped — point `TALL_ARCHITECT_PATH` at the working copy's
+`resources/guidelines/`. The `ui-patterns` skill is copied out of `vendor/` by Boost itself, so changing it needs the
+symlink.
+
+Undo with `composer config --unset repositories.tall-architect`.

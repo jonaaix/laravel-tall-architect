@@ -20,7 +20,7 @@ class GuidelineRegistry
       'planning' => true,
       'design-system' => true,
       'ux-principles' => true,
-      'nontech-user' => false,
+      'nontech-user' => true,
    ];
 
    public function sourcePath(): string

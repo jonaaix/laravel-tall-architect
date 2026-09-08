@@ -18,7 +18,7 @@ return [
       'planning' => env('TALL_ARCHITECT_PLANNING', true),
       'design-system' => env('TALL_ARCHITECT_DESIGN_SYSTEM', true),
       'ux-principles' => env('TALL_ARCHITECT_UX_PRINCIPLES', true),
-      'nontech-user' => env('TALL_ARCHITECT_NONTECH_USER', false),
+      'nontech-user' => env('TALL_ARCHITECT_NONTECH_USER', true),
    ],
 
    /*

@@ -1,5 +1,5 @@
 {
-   "version": "1.1.0",
+   "version": "1.2.0",
    "name": "aaix/laravel-tall-architect",
    "description": "Distributes and maintains the aaix TALL stack AI agent rules and guidelines across Laravel projects via Laravel Boost.",
    "type": "laravel-package",
