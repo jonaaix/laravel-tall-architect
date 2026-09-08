@@ -3,9 +3,6 @@
 This project's visual decisions. Principles live in the UX Principles rules below, concrete
 class recipes in the `ui-patterns` skill — read it before building UI.
 
-**Reference view:** `app/Islands/ProductsList`. When something here is unclear, follow how
-that view solves it.
-
 ## Visual language
 
 We adapt shadcn/ui by hand in Tailwind — the package is not installed.
@@ -37,8 +34,6 @@ columns, menu items.
   and stay in it — never mix within one strip.
 - **Every icon is its own component** with a stable name and fixed viewBox. Never inline
   `<svg>` in a consumer; that forks the visual set between callsites.
-- The datagrid ships its own toolbar icons from `@aaix/laravel-islands-datagrid/vue` —
-  islands import them rather than redrawing.
 - **Icon boxes only beside a heading or a stat value.** In tabs, buttons, cells and hover
   affordances icons ship bare.
 
@@ -63,7 +58,7 @@ content belongs under the toolbar it scrolls past, not above it.
 | --- | --- |
 | Panels beside content | 10 |
 | Table toolbar, floating bars | 20 |
-| Filament topbar | 30 |
+| Application chrome (topbar, sidebar) | 30 |
 | Dropdown backdrop / menu | 60 / 61 |
 | Modal | 70 |
 | Tooltip | 9999 |
@@ -86,15 +81,9 @@ content belongs under the toolbar it scrolls past, not above it.
 
 ## Formatting
 
-Numbers, dates, money and weights go through `@shared/format.js` — `formatCurrency`,
-`formatDate`, `formatRelative`, `formatWeight`. Figures use `tabular-nums`.
-Times display in the user's timezone, 24-hour format — never the server's.
-
-## Photos
-
-**Always 3∶2.** Grid or single scrolling row, remembered per user. Card size is the user's
-choice; width is never enforced beyond 100% of the space. Full-resolution downloads are
-named after the record, not the position — reordering must not make two downloads collide.
+Numbers, dates, money and weights go through one shared formatting module, never inline.
+Figures use `tabular-nums`. Times display in the user's timezone, 24-hour format — never
+the server's.
 
 ## Charts (ApexCharts)
 
@@ -114,12 +103,4 @@ Three parts, both edges drawn: header with title and close button above a
 `border-b border-gray-200 dark:border-white/10`, content, footer above a
 `border-t border-gray-200 dark:border-white/10 pt-4`. Cancel (`tone="secondary"`) left of
 the primary action (`tone="cta"`), both at default size — never `size="sm"` in a modal
-footer. Laravel Islands and Filament both ship modal helpers — use them rather than
-rebuilding this by hand.
-
-## Destructive actions
-
-File deletion is refused outside production: local and staging read the production storage,
-so deleting there would remove the file from the live shop. The action stays available and
-reports what it did instead of pretending to have worked: `{ deleted: n, blocked: n }`, and
-the view says so plainly.
+footer. Use the modal helper your UI layer ships rather than rebuilding this by hand.
