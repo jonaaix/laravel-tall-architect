@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="112 112 800 800" width="800" height="800">
+    <defs>
+        <!-- Background Grid Pattern -->
+        <pattern id="grid-small" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38BDF8" stroke-width="1" opacity="0.1" />
+        </pattern>
+        <pattern id="grid-large" width="100" height="100" patternUnits="userSpaceOnUse">
+            <rect width="100" height="100" fill="url(#grid-small)" />
+            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.25" />
+        </pattern>
+
+        <!-- Vignette / Lighting for the Squircle -->
+        <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#0B1120" stop-opacity="0.9" />
+        </radialGradient>
+
+        <!-- TALL Stack Gradients for the Structure -->
+        <!-- Left Leg: Tailwind Teal to Laravel Red -->
+        <linearGradient id="leftGrad" x1="330" y1="680" x2="512" y2="320" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#38BDF8" />
+            <stop offset="100%" stop-color="#FF2D20" />
+        </linearGradient>
+
+        <!-- Right Leg: Livewire Pink to Laravel Red -->
+        <linearGradient id="rightGrad" x1="694" y1="680" x2="512" y2="320" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#FB7185" />
+            <stop offset="100%" stop-color="#FF2D20" />
+        </linearGradient>
+
+        <!-- Crossbar: AI Indigo to Pink -->
+        <linearGradient id="crossGrad" x1="391" y1="560" x2="633" y2="560" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#818CF8" />
+            <stop offset="100%" stop-color="#F472B6" />
+        </linearGradient>
+
+        <!-- macOS Style Inner Glass Border -->
+        <linearGradient id="innerBorder" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+        </linearGradient>
+
+        <!-- Drop Shadow for the main Icon Container -->
+        <filter id="appShadow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.4" />
+            <feDropShadow dx="0" dy="32" stdDeviation="40" flood-color="#000000" flood-opacity="0.25" />
+        </filter>
+
+        <!-- Neon Glow Filter for the 'A' Structure -->
+        <filter id="glowBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="24" result="blur" />
+        </filter>
+    </defs>
+
+    <!-- MAIN APP ICON CONTAINER -->
+    <g filter="url(#appShadow)">
+        <!-- Base Squircle Background (macOS rx = 22.5% of width) -->
+        <rect x="112" y="112" width="800" height="800" rx="180" fill="#0B1120" />
+
+        <!-- Architect Blueprint Grid -->
+        <rect x="112" y="112" width="800" height="800" rx="180" fill="url(#grid-large)" />
+
+        <!-- Depth / Lighting -->
+        <rect x="112" y="112" width="800" height="800" rx="180" fill="url(#vignette)" />
+    </g>
+
+    <!-- Faint Background Element (AI Rules / Code representation) -->
+    <text x="512" y="550" font-family="Menlo, Monaco, Consolas, monospace" font-size="400" fill="#FFFFFF" opacity="0.02" text-anchor="middle" font-weight="900" dominant-baseline="middle">{ }</text>
+
+    <!-- ARCHITECT MARKS / MEASUREMENTS -->
+    <g stroke="#38BDF8" stroke-width="2" opacity="0.25" fill="none">
+        <!-- Crosshairs -->
+        <path d="M 512 200 L 512 260 M 482 230 L 542 230" />
+        <circle cx="512" cy="230" r="10" />
+
+        <path d="M 220 680 L 280 680 M 250 650 L 250 710" />
+        <circle cx="250" cy="680" r="10" />
+
+        <path d="M 744 680 L 804 680 M 774 650 L 774 710" />
+        <circle cx="774" cy="680" r="10" />
+
+        <!-- Angle Drafting Arcs -->
+        <!-- Peak Angle -->
+        <path d="M 450 320 A 62 62 0 0 1 574 320" stroke-dasharray="6 6" />
+        <!-- Bottom Left Angle -->
+        <path d="M 330 620 A 60 60 0 0 1 390 680" stroke-dasharray="6 6" />
+        <!-- Bottom Right Angle -->
+        <path d="M 634 680 A 60 60 0 0 1 694 620" stroke-dasharray="6 6" />
+    </g>
+
+    <!-- GLOWING AURA BEHIND STRUCTURE -->
+    <g filter="url(#glowBlur)" opacity="0.65">
+        <path d="M 330 680 L 512 320" stroke="url(#leftGrad)" stroke-width="84" stroke-linecap="round" />
+        <path d="M 694 680 L 512 320" stroke="url(#rightGrad)" stroke-width="84" stroke-linecap="round" />
+        <line x1="420" y1="560" x2="604" y2="560" stroke="url(#crossGrad)" stroke-width="84" stroke-linecap="round" />
+    </g>
+
+    <!-- SOLID STRUCTURAL 'A' BEAMS -->
+    <g>
+        <!-- Left Leg -->
+        <path d="M 330 680 L 512 320" stroke="url(#leftGrad)" stroke-width="84" stroke-linecap="round" />
+        <!-- Right Leg -->
+        <path d="M 694 680 L 512 320" stroke="url(#rightGrad)" stroke-width="84" stroke-linecap="round" />
+        <!-- Crossbar (starts inwards to merge seamlessly without bulging caps) -->
+        <line x1="420" y1="560" x2="604" y2="560" stroke="url(#crossGrad)" stroke-width="84" stroke-linecap="round" />
+    </g>
+
+    <!-- INNER FIBER-OPTIC CORES (Data flow / Agent Paths) -->
+    <g opacity="0.85">
+        <path d="M 330 680 L 512 320" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+        <path d="M 694 680 L 512 320" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+        <!-- Core crossbar intersects the leg cores perfectly -->
+        <line x1="391" y1="560" x2="633" y2="560" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    </g>
+
+    <!-- AI AGENT NODES (Connecting the rules) -->
+    <!-- Node 1: Top Peak (Laravel Red / The Architect) -->
+    <g>
+        <circle cx="512" cy="320" r="28" fill="#0B1120" />
+        <circle cx="512" cy="320" r="28" fill="none" stroke="#FF2D20" stroke-width="4" />
+        <circle cx="512" cy="320" r="10" fill="#FF2D20" />
+        <circle cx="512" cy="320" r="4" fill="#FFFFFF" />
+    </g>
+
+    <!-- Node 2: Bottom Left (Tailwind Teal) -->
+    <g>
+        <circle cx="330" cy="680" r="28" fill="#0B1120" />
+        <circle cx="330" cy="680" r="28" fill="none" stroke="#38BDF8" stroke-width="4" />
+        <circle cx="330" cy="680" r="10" fill="#38BDF8" />
+        <circle cx="330" cy="680" r="4" fill="#FFFFFF" />
+    </g>
+
+    <!-- Node 3: Bottom Right (Livewire Pink) -->
+    <g>
+        <circle cx="694" cy="680" r="28" fill="#0B1120" />
+        <circle cx="694" cy="680" r="28" fill="none" stroke="#FB7185" stroke-width="4" />
+        <circle cx="694" cy="680" r="10" fill="#FB7185" />
+        <circle cx="694" cy="680" r="4" fill="#FFFFFF" />
+    </g>
+
+    <!-- Node 4: Crossbar Left (Alpine / AI Indigo) -->
+    <g>
+        <circle cx="391" cy="560" r="20" fill="#0B1120" />
+        <circle cx="391" cy="560" r="20" fill="none" stroke="#818CF8" stroke-width="4" />
+        <circle cx="391" cy="560" r="8" fill="#818CF8" />
+        <circle cx="391" cy="560" r="3" fill="#FFFFFF" />
+    </g>
+
+    <!-- Node 5: Crossbar Right (Livewire Blend) -->
+    <g>
+        <circle cx="633" cy="560" r="20" fill="#0B1120" />
+        <circle cx="633" cy="560" r="20" fill="none" stroke="#F472B6" stroke-width="4" />
+        <circle cx="633" cy="560" r="8" fill="#F472B6" />
+        <circle cx="633" cy="560" r="3" fill="#FFFFFF" />
+    </g>
+
+    <!-- macOS SQUIRCLE INNER GLOSS BORDER (For 3D physical tile effect) -->
+    <rect x="113" y="113" width="798" height="798" rx="179" fill="none" stroke="url(#innerBorder)" stroke-width="2" />
+
+</svg>

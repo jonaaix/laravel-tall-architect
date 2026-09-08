@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/jonaaix/laravel-tall-architect">
-    <img src="https://raw.githubusercontent.com/jonaaix/laravel-tall-architect/main/resources/laravel-tall-architect.webp" alt="Laravel TALL Architect Logo" width="200">
+    <img src="https://raw.githubusercontent.com/jonaaix/laravel-tall-architect/main/icon.svg" alt="Laravel TALL Architect Logo" width="180">
   </a>
 </p>
 
