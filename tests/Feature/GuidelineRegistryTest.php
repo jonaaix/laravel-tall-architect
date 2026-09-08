@@ -29,7 +29,7 @@ class GuidelineRegistryTest extends TestCase
    }
 
    #[Test]
-   public function it_enables_the_required_guidelines_by_default(): void
+   public function it_enables_the_default_set(): void
    {
       $this->assertSame(
          ['tall-architect', 'planning', 'design-system', 'ux-principles'],
@@ -38,7 +38,7 @@ class GuidelineRegistryTest extends TestCase
    }
 
    #[Test]
-   public function it_enables_an_optional_guideline_when_configured(): void
+   public function it_enables_a_guideline_that_is_off_by_default(): void
    {
       config()->set('tall-architect.guidelines.nontech-user', true);
 
@@ -46,20 +46,26 @@ class GuidelineRegistryTest extends TestCase
    }
 
    #[Test]
-   public function it_ignores_a_disabled_required_guideline_in_strict_mode(): void
+   public function it_allows_disabling_any_guideline(): void
    {
-      config()->set('tall-architect.guidelines.planning', false);
+      foreach (array_keys(GuidelineRegistry::TITLES) as $key) {
+         config()->set('tall-architect.guidelines.' . $key, false);
 
-      $this->assertContains('planning', $this->registry->enabled()->keys()->all());
+         $this->assertNotContains($key, $this->registry->enabled()->keys()->all());
+
+         config()->set('tall-architect.guidelines.' . $key, true);
+      }
    }
 
    #[Test]
-   public function it_allows_disabling_a_required_guideline_outside_strict_mode(): void
+   public function it_falls_back_to_the_shipped_default_for_an_unlisted_guideline(): void
    {
-      config()->set('tall-architect.strict', false);
-      config()->set('tall-architect.guidelines.planning', false);
+      config()->set('tall-architect.guidelines', []);
 
-      $this->assertNotContains('planning', $this->registry->enabled()->keys()->all());
+      $this->assertSame(
+         ['tall-architect', 'planning', 'design-system', 'ux-principles'],
+         $this->registry->enabled()->keys()->all(),
+      );
    }
 
    #[Test]

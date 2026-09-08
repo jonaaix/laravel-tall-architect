@@ -33,7 +33,7 @@ Boost is already set up, add the package to the existing selection instead:
 php artisan boost:update --discover
 ```
 
-That is the whole setup. The four required guidelines are now part of every agent file:
+That is the whole setup. The four default guidelines are now part of every agent file:
 
 ```bash
 php artisan tall-architect:status
@@ -44,21 +44,24 @@ php artisan tall-architect:status
 Agent rules rot the moment they are copied. This package keeps them in one place and distributes them as a composer
 dependency, so a correction rolls out everywhere instead of into one repository at a time.
 
-| Content | Vehicle | Loaded |
+| Content | Vehicle | On by default |
 |---|---|---|
-| `tall-architect`, `planning`, `design-system`, `ux-principles` | Boost guideline | always, in every agent file |
-| `nontech-user` | Boost guideline | only when enabled |
-| `ui-patterns` | Boost skill `ui-patterns` | on demand, when the agent asks for it |
+| `tall-architect`, `planning`, `design-system`, `ux-principles` | Boost guideline | yes |
+| `nontech-user` | Boost guideline | no |
+| `ui-patterns` | Boost skill `ui-patterns` | loaded on demand, when the agent asks for it |
+
+Every guideline can be switched off individually; the defaults are the set most projects want, not a policy.
 
 The guideline markdown lives in `resources/guidelines/`, the reference in
 `resources/boost/skills/ui-patterns/ui-patterns.md`.
 
-## Enabling the optional guideline
+## Choosing the guidelines
 
-Set the env variable, or publish the config and edit it there:
+Each guideline has its own flag. Set the env variable, or publish the config and edit it there:
 
 ```dotenv
 TALL_ARCHITECT_NONTECH_USER=true
+TALL_ARCHITECT_PLANNING=false
 ```
 
 ```bash
@@ -71,8 +74,7 @@ Then recompose the agent files:
 php artisan boost:update
 ```
 
-With `strict` enabled (the default) a required guideline stays active whatever its flag says. Set
-`TALL_ARCHITECT_STRICT=false` if a project genuinely needs to opt out of one.
+`php artisan tall-architect:status` shows the resulting set with the token cost of each entry.
 
 ## Commands
 

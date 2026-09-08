@@ -6,10 +6,10 @@ return [
    | Active Guidelines
    |--------------------------------------------------------------------------
    |
-   | Every guideline shipped by this package is listed here. Disabling a
-   | guideline removes its content from the composed agent files on the
-   | next sync. Required guidelines are re-enabled unless "strict" is
-   | turned off below.
+   | Every guideline shipped by this package is listed here, each one free to
+   | switch off. Disabling one removes its content from the composed agent
+   | files on the next Boost update. The defaults below are the set most
+   | projects want; they are defaults, not a policy.
    |
    */
 
@@ -20,19 +20,6 @@ return [
       'ux-principles' => env('TALL_ARCHITECT_UX_PRINCIPLES', true),
       'nontech-user' => env('TALL_ARCHITECT_NONTECH_USER', false),
    ],
-
-   /*
-   |--------------------------------------------------------------------------
-   | Strict Mode
-   |--------------------------------------------------------------------------
-   |
-   | With strict mode enabled the required guidelines are always composed,
-   | whatever the flags above say. Turn it off to allow a project to opt
-   | out of a required guideline as well.
-   |
-   */
-
-   'strict' => env('TALL_ARCHITECT_STRICT', true),
 
    /*
    |--------------------------------------------------------------------------

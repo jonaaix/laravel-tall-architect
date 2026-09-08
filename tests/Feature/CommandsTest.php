@@ -36,7 +36,6 @@ class CommandsTest extends TestCase
    #[Test]
    public function sync_fails_when_no_guideline_is_active(): void
    {
-      config()->set('tall-architect.strict', false);
       config()->set('tall-architect.guidelines', array_fill_keys(
          ['tall-architect', 'planning', 'design-system', 'ux-principles', 'nontech-user'],
          false,

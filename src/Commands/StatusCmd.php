@@ -19,7 +19,6 @@ class StatusCmd extends Command
    {
       $this->newLine();
       $this->components->twoColumnDetail('<fg=gray>Source</>', $registry->sourcePath());
-      $this->components->twoColumnDetail('<fg=gray>Strict mode</>', config('tall-architect.strict') ? 'on' : 'off');
       $this->components->twoColumnDetail('<fg=gray>Laravel Boost</>', $this->boostStatus());
       $this->newLine();
 
@@ -27,18 +26,17 @@ class StatusCmd extends Command
          ->all()
          ->map(fn (Guideline $guideline): array => [
             $guideline->title,
-            $guideline->required ? 'required' : 'optional',
             $this->stateLabel($guideline),
             $guideline->exists() ? (string) $guideline->estimatedTokens() : '-',
          ])
          ->values()
          ->all();
 
-      $this->table(['Guideline', 'Kind', 'State', '~Tokens'], $rows);
+      $this->table(['Guideline', 'State', '~Tokens'], $rows);
 
       $this->components->twoColumnDetail(
          'Reference skill',
-         is_file(__DIR__ . '/../../resources/boost/skills/tall-architect/SKILL.md') ? 'shipped' : '<fg=red>missing</>',
+         is_file(__DIR__ . '/../../resources/boost/skills/ui-patterns/SKILL.md') ? 'shipped' : '<fg=red>missing</>',
       );
       $this->newLine();
 

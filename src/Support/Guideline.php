@@ -8,7 +8,6 @@ class Guideline
       public readonly string $key,
       public readonly string $title,
       public readonly string $path,
-      public readonly bool $required,
       public readonly bool $enabled,
    ) {
    }

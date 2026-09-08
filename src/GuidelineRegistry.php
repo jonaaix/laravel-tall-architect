@@ -7,16 +7,20 @@ use Illuminate\Support\Collection;
 
 class GuidelineRegistry
 {
-   public const REQUIRED = ['tall-architect', 'planning', 'design-system', 'ux-principles'];
-
-   public const OPTIONAL = ['nontech-user'];
-
    public const TITLES = [
       'tall-architect' => 'TALL Architect',
       'planning' => 'Planning',
       'design-system' => 'Design System',
       'ux-principles' => 'UX Principles',
       'nontech-user' => 'Non-technical User Mode',
+   ];
+
+   public const DEFAULTS = [
+      'tall-architect' => true,
+      'planning' => true,
+      'design-system' => true,
+      'ux-principles' => true,
+      'nontech-user' => false,
    ];
 
    public function sourcePath(): string
@@ -36,23 +40,13 @@ class GuidelineRegistry
    public function all(): Collection
    {
       $flags = (array) config('tall-architect.guidelines', []);
-      $strict = (bool) config('tall-architect.strict', true);
 
-      return collect(array_merge(self::REQUIRED, self::OPTIONAL))
-         ->mapWithKeys(function (string $key) use ($flags, $strict): array {
-            $required = in_array($key, self::REQUIRED, true);
-            $enabled = (bool) ($flags[$key] ?? $required);
-
-            return [
-               $key => new Guideline(
-                  key: $key,
-                  title: self::TITLES[$key] ?? ucfirst($key),
-                  path: $this->sourcePath() . DIRECTORY_SEPARATOR . $key . '.md',
-                  required: $required,
-                  enabled: $required && $strict ? true : $enabled,
-               ),
-            ];
-         });
+      return collect(self::TITLES)->map(fn (string $title, string $key): Guideline => new Guideline(
+         key: $key,
+         title: $title,
+         path: $this->sourcePath() . DIRECTORY_SEPARATOR . $key . '.md',
+         enabled: (bool) ($flags[$key] ?? self::DEFAULTS[$key]),
+      ));
    }
 
    /**
