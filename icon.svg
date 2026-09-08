@@ -40,12 +40,6 @@
             <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
         </linearGradient>
 
-        <!-- Drop Shadow for the main Icon Container -->
-        <filter id="appShadow" x="-10%" y="-10%" width="120%" height="120%">
-            <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.4" />
-            <feDropShadow dx="0" dy="32" stdDeviation="40" flood-color="#000000" flood-opacity="0.25" />
-        </filter>
-
         <!-- Neon Glow Filter for the 'A' Structure -->
         <filter id="glowBlur" x="-20%" y="-20%" width="140%" height="140%">
             <feGaussianBlur stdDeviation="24" result="blur" />
@@ -53,7 +47,7 @@
     </defs>
 
     <!-- MAIN APP ICON CONTAINER -->
-    <g filter="url(#appShadow)">
+    <g>
         <!-- Base Squircle Background (macOS rx = 22.5% of width) -->
         <rect x="112" y="112" width="800" height="800" rx="180" fill="#0B1120" />
 
