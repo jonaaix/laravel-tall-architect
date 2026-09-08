@@ -27,7 +27,7 @@
       "roave/security-advisories": "dev-latest",
       "laravel/boost": ">=2.4.0",
       "orchestra/testbench": ">=10.0.0",
-      "phpunit/phpunit": ">=12.0.0"
+      "phpunit/phpunit": ">=11.0.0"
    },
    "suggest": {
       "laravel/boost": "Required to compose the guidelines into your agent files (AGENTS.md, CLAUDE.md, ...)."

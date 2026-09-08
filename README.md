@@ -19,11 +19,30 @@ Ships one set of AI agent rules to every project and keeps it current &mdash; co
 
 ---
 
-Agent rules rot the moment they are copied. This package keeps them in one place and distributes them as a composer
-dependency: the rules land in every project's `CLAUDE.md` / `AGENTS.md`, and a `composer update` rolls a correction out
-everywhere instead of into one repository at a time.
+## Quick Start
+
+```bash
+composer require aaix/laravel-tall-architect --dev
+php artisan boost:install
+```
+
+Boost lists third-party packages during its install &mdash; tick `aaix/laravel-tall-architect` there. In a project where
+Boost is already set up, add the package to the existing selection instead:
+
+```bash
+php artisan boost:update --discover
+```
+
+That is the whole setup. The four required guidelines are now part of every agent file:
+
+```bash
+php artisan tall-architect:status
+```
 
 ## What ships
+
+Agent rules rot the moment they are copied. This package keeps them in one place and distributes them as a composer
+dependency, so a correction rolls out everywhere instead of into one repository at a time.
 
 | Content | Vehicle | Loaded |
 |---|---|---|
@@ -33,36 +52,6 @@ everywhere instead of into one repository at a time.
 
 The guideline markdown lives in `resources/guidelines/`, the reference in
 `resources/boost/skills/ui-patterns/ui-patterns.md`.
-
-## Installation
-
-**1. Require the package.**
-
-```bash
-composer require aaix/laravel-tall-architect --dev
-```
-
-**2. Make sure Laravel Boost is set up.** Boost writes the agent files; this package only supplies their content.
-
-```bash
-composer require laravel/boost --dev
-php artisan boost:install
-```
-
-Boost lists third-party packages during its install &mdash; tick `aaix/laravel-tall-architect` there. In a project where
-Boost is already set up, add it afterwards instead:
-
-```bash
-php artisan boost:update --discover
-```
-
-**3. Check the result.**
-
-```bash
-php artisan tall-architect:status
-```
-
-The four required guidelines are now part of every agent file. Nothing further is needed unless you want the optional one.
 
 ## Enabling the optional guideline
 

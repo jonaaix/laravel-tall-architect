@@ -15,11 +15,12 @@ jobs:
                 # We explicitly define the test combinations.
                 # Each combination has a compatible set of Laravel, Testbench, and PHPUnit versions.
                 include:
-                    # Test Laravel 12 on the lowest supported PHP version
+                    # Test Laravel 12 on the lowest supported PHP version.
+                    # PHPUnit 12.5+ requires PHP 8.3, so this leg stays on PHPUnit 11.
                     -   laravel: 12.*
                         php: 8.2
                         testbench: 10.*
-                        phpunit: 12.*
+                        phpunit: 11.*
 
                     # Test Laravel 13
                     -   laravel: 13.*
