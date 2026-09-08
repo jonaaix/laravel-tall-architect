@@ -1,0 +1,32 @@
+# .github/workflows/release.yml
+name: Create New Release
+
+# grant write permission on repo contents so we can create a release
+permissions:
+    contents: write
+
+on:
+    push:
+        tags:
+            - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+    test:
+        uses: ./.github/workflows/run-tests.yml
+
+    release:
+        name: Create GitHub Release
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Create GitHub Release
+                uses: actions/create-release@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                    tag_name: ${{ github.ref }}
+                    release_name: Release ${{ github.ref_name }}
+                    body: |
+                        New release of the Laravel TALL Architect package. Please see the commit history for changes.
+                    draft: false
+                    prerelease: false

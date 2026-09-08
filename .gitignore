@@ -1,0 +1,13 @@
+/vendor
+node_modules
+composer.lock
+package-lock.json
+.phpunit.cache/
+.phpunit.result.cache
+coverage/
+.DS_Store
+.idea/**
+!.idea/icon.svg
+/.vscode
+/.fleet
+.env
