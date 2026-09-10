@@ -6,12 +6,14 @@ take over from a cold start.
 ## Procedure
 
 - Once work turns out to have more than one step, write the file before continuing.
-  One file per feature, named after it (`form-modal-shell.md`).
+- **Write it straight to its final location:** `.ai/planning/<year>/<month>/<feature>.md`,
+  dated by when the work starts. Nothing is moved or archived later.
 - Update it as the work moves: state, milestones, decisions. Overwrite, don't append —
   the file describes how things *are*, not what happened. The history is in the git log.
 - Commit it with the code it belongs to, not separately.
-- When the feature is merged, move the file to `.ai/planning/archive/`.
-- When starting work in an area, check the archive for an earlier file on the same subject.
+- To pick up unfinished work, look at the current and previous month folder for files with
+  open milestones. When starting work in an area that has been touched before, look for its
+  earlier file.
 
 ## File structure
 
@@ -21,5 +23,13 @@ take over from a cold start.
 - **Decisions** — what was settled and why, including what was rejected. Only what explains
   the current state; not the back and forth that led to it.
 - **Open** — what still needs a decision from the user.
+
+Decisions that reach beyond this feature — a deprecated subsystem, a convention for the whole
+app — go into `.ai/guidelines/app.md`, not here; one line here pointing at them is enough.
+
+When you add to `app.md`, fit the entry into the existing structure: put it in the section it
+belongs to, merge it with a rule that already covers the same ground, and replace a rule the
+new decision supersedes. Never append at the end. Restructure freely, but never change what a
+rule says while doing it.
 
 Keep it short enough to stay accurate. A file nobody trusts is worse than no file.
