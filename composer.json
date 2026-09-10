@@ -50,6 +50,7 @@
       }
    },
    "scripts": {
+      "build-guidelines": "@php bin/build-guidelines.php",
       "test": "vendor/bin/phpunit --colors=always --testdox",
       "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
    },
