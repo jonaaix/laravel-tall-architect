@@ -9,6 +9,10 @@ Atomic, scoped, no adjacent cleanup.
 ### Switching
 Explicit instruction only. Ambiguous → ask. After the change, back to discussion.
 
+Before implementing a feature: first questions until scope and behaviour are unambiguous,
+then a short TLDR of what you are about to implement — before the first edit, not in the
+summary.
+
 ## Tech Stack Standards
 PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS >= 4.x, Vue.js >= 3.x
 
