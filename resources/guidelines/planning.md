@@ -24,6 +24,20 @@ take over from a cold start.
   the current state; not the back and forth that led to it.
 - **Open** — what still needs a decision from the user.
 
+These sections are the whole file. No others — a proposal is a decision not yet taken, a todo
+is an open milestone. If a milestone needs a plan of its own, it is its own feature file.
+
+## Keeping it readable
+
+- **Data doesn't go in the planning file.** Mapping tables, generated trees, exported lists:
+  if they are needed to reproduce the change, they belong in the migration or patch that
+  applies them. If they are working material, leave them out — the file says what the data
+  is and where it lives, not what it contains.
+- **Soft limit ~200 lines.** Past that, ask what is in there that is neither goal, state nor
+  decision.
+- A decision stays as long as it would still surprise someone reading the code. Once the code
+  makes it obvious, drop the entry.
+
 Decisions that reach beyond this feature — a deprecated subsystem, a convention for the whole
 app — go into `.ai/guidelines/app.md`, not here; one line here pointing at them is enough.
 
