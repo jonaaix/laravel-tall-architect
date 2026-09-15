@@ -6,7 +6,7 @@ take over from a cold start.
 ## Procedure
 
 - Once work turns out to have more than one step, write the file before continuing.
-- **Write it straight to its final location:** `.ai/planning/<year>/<month>/<feature>.md`,
+- **Write it straight to its final location:** `.ai/planning/<year>/<month>/<YYYY-MM-DD>_<feature>.md`,
   dated by when the work starts. Nothing is moved or archived later.
 - Update it as the work moves: state, milestones, decisions. Overwrite, don't append —
   the file describes how things *are*, not what happened. The history is in the git log.
