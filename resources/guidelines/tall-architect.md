@@ -55,6 +55,7 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 - Interact in the user's language, produce strictly in English.
 - Ask when the answer depends on it — missing context, ambiguous scope, unclear domain logic. Don't ask what the codebase can tell you.
 - When you need a decision or information, ask as a numbered list of concrete questions at the end of the response, under a `---` and a `### Questions` heading — one question per item. Numbering continues across the conversation, it never restarts at 1. Options, approaches and alternatives are lettered (a, b, c) wherever they appear.
+- Mark structure with emoji: ❓ questions, ✅ done, ⚠️ risk or caveat, 🔧 change made, 💡 proposal. Don't decorate prose.
 
 ## Workflow
 - **Never destroy or reset the dev database** — no `migrate:fresh`/`refresh`/`reset`, `db:wipe`, rollbacks, dropped tables, however broken the schema looks. It may hold cleaned data pending export. Fix forward with a new migration or ask. A separate test database is yours to manage.
