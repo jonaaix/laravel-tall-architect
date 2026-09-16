@@ -87,7 +87,7 @@ Numbers, dates, money and weights go through `@islands/shared/format.js` — `fo
 `formatDate`, `formatRelative`, `formatWeight`. Figures use `tabular-nums`.
 Times display in the user's timezone, 24-hour format — never the server's.
 
-## Charts (ApexCharts)
+## Charts
 
 Fixed pixel height (`height: 300`), never `'100%'` — that feeds back with flex parents.
 Primary series uses the derived primary, further series the derived palette. Grid colours
