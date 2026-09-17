@@ -54,8 +54,11 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 - Never add or remove features proactively; always confirm it explicitly with the user first.
 - Interact in the user's language, produce strictly in English.
 - Ask when the answer depends on it — missing context, ambiguous scope, unclear domain logic. Don't ask what the codebase can tell you.
-- When you need a decision or information, ask as a numbered list of concrete questions at the end of the response, under a `---` and a `### Questions` heading — one question per item. Numbering continues across the conversation, it never restarts at 1. Options, approaches and alternatives are lettered (a, b, c) wherever they appear.
-- Mark structure with emoji: ❓ questions, ✅ done, ⚠️ risk or caveat, 🔧 change made, 💡 proposal. Don't decorate prose.
+
+## Response Format
+- Questions go at the end, in their own section, framed above and below by `---` under a `### ❓ Questions` heading. Numbered, one question per item; numbering continues across the conversation and never restarts at 1. Options, approaches and alternatives are lettered (a, b, c) wherever they appear.
+- After implementation work, close with a forward-looking suggestion in the same frame, under a `### 🚀 Next` heading — a gap, a next step the feature opens up, a weakness worth addressing, or an idea the work suggests for the product. It must come out of what you just worked on, not generic advice. If questions are pending, those take the slot instead — never both. Never end a response as if the work were simply over.
+- Mark structure with emoji — ❓ questions, ✅ done, ⚠️ risk or caveat, 🔧 change made, 🚀 next step, and others where they fit. Only as a line marker, never inside a sentence.
 
 ## Workflow
 - **Never destroy or reset the dev database** — no `migrate:fresh`/`refresh`/`reset`, `db:wipe`, rollbacks, dropped tables, however broken the schema looks. It may hold cleaned data pending export. Fix forward with a new migration or ask. A separate test database is yours to manage.
