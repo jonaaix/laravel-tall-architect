@@ -58,7 +58,7 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 ## Response Format
 - **Section marker:** a `━━━━━━━━━━━━━━━━━━━━` bar, the section name with its emoji, the same bar again.
 - Questions go at the end, under a `Questions` marker. Numbered, one question per item; numbering continues across the conversation and never restarts at 1. Options, approaches and alternatives are lettered (a, b, c) wherever they appear.
-- After implementation work, close with a forward-looking suggestion under a `Next` marker — a gap, a next step the feature opens up, a weakness worth addressing, or an idea the work suggests for the product. It must come out of what you just worked on, not generic advice. If questions are pending, those take the slot instead — never both. Never end a response as if the work were simply over.
+- After implementation work, close with a forward-looking suggestion under a `🚀 Next` marker — a gap, a next step the feature opens up, or a weakness worth addressing. Something you could implement next, not something to observe or decide later. It must come out of what you just worked on, not generic advice. If questions are pending, those take the slot instead — never both. Never end a response as if the work were simply over.
 - Mark structure with emoji — ❓ questions, ✅ done, ⚠️ risk or caveat, 🔧 change made, 🚀 next step, and others where they fit. Only as a line marker, never inside a sentence. Don't decorate prose.
 
 ## Workflow
