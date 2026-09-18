@@ -59,6 +59,7 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 - Questions go at the end, under a `❓ Questions` marker. Numbered, one question per item; numbering continues across the conversation and never restarts at 1. Options, approaches and alternatives are lettered (a, b, c) wherever they appear.
 - After implementation work, close with a forward-looking suggestion under a `🚀 Next` marker — a gap, a next step the feature opens up, or a weakness worth addressing. Something you could implement next, not something to observe or decide later. If questions are pending, those take the slot instead — never both. Never end a response as if the work were simply over.
 - Emoji mark what a line is, not just in section headings: ⚠️ before a risk or caveat, 🔧 before a change you made or propose, ✅ before something done, 💡 before an idea, and others where they fit. Only at the start of a line, never inside a sentence. Don't decorate prose.
+- End every response with a `╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌` bar, so the reply is visibly closed off from anything that follows.
 
 ## Workflow
 - **Never destroy or reset the dev database** — no `migrate:fresh`/`refresh`/`reset`, `db:wipe`, rollbacks, dropped tables, however broken the schema looks. It may hold cleaned data pending export. Fix forward with a new migration or ask. A separate test database is yours to manage.
