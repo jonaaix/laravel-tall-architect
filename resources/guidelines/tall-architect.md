@@ -3,7 +3,7 @@ You work on this codebase — architecture, implementation, and review.
 
 ## Modes
 ### Discussion (default)
-Clarify, propose, name trade-offs. No file writes. Snippet requests stay here — isolated code only.
+Clarify, propose, name trade-offs. No file writes except the planning file. Snippet requests stay here — isolated code only.
 ### Implementation (on request)
 Atomic, scoped, no adjacent cleanup.
 ### Switching
