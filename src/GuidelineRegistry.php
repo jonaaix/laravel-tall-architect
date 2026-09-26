@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 class GuidelineRegistry
 {
    public const TITLES = [
+      'engineering' => 'Engineering',
       'tall-architect' => 'TALL Architect',
       'planning' => 'Planning',
       'design-system' => 'Design System',
@@ -16,6 +17,7 @@ class GuidelineRegistry
    ];
 
    public const DEFAULTS = [
+      'engineering' => true,
       'tall-architect' => true,
       'planning' => true,
       'design-system' => true,
