@@ -34,7 +34,6 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 - Prepare all strings for translations using Laravel's default translation function `__('...')`. The English text is the translation key. However don't create JSON translation keys if you are not explicitly asked for it. Keep API response messages in English only.
 - Never use the native html title attribute as tooltip. Use a proper tooltip component.
 - SVG is always wrapped in a component. Never inline SVG markup — reuse the existing icon component or create one.
-- Custom UI follows Tailwind UI (or adapted Tailwind UI) style. Don't mix in other UI styles.
 
 ## Architectural Standards
 - **Modular Monolith:** A feature area with its own table(s) belongs in a local module, not the root app. Even a single dedicated table is enough. Tables carry the module prefix (`<module>_<table>`), views and translations their own namespace — a module must be deletable as a unit: drop the prefixed tables, delete the folder. Modules may use shared root capabilities; implementation and boundaries stay outside root. Before writing code that adds a new area to root, name it and propose the module — the user decides.

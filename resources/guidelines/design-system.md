@@ -5,7 +5,7 @@ class recipes in the `ui-patterns` skill — read it before building UI.
 
 ## Visual language
 
-We adapt shadcn/ui by hand in Tailwind — the package is not installed.
+We adapt Tailwind UI and shadcn/ui by hand in Tailwind — neither is installed as a package. Material may contribute where it helps, restyled to the rules below: the app reads as one design, not a patchwork.
 
 - **Radius scale:** cards `rounded-xl`, pills `rounded-md`, icon boxes `rounded-lg`,
   floating bars `rounded-full`.
