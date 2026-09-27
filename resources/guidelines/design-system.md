@@ -1,7 +1,8 @@
 # Design System
 
-This project's visual decisions. Principles live in the UX Principles rules below, concrete
-class recipes in the `ui-patterns` skill — read it before building UI.
+This project's visual decisions. Principles live in the UX Principles rules below. Before
+writing markup, check whether the project or one of its UI libraries already ships a helper
+for it; the `ui-patterns` skill holds class recipes for what none covers.
 
 ## Visual language
 
