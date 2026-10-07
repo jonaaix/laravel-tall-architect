@@ -35,7 +35,7 @@ class TallArchitectServiceProvider extends ServiceProvider
 
       $this->publishes(
          [
-            __DIR__ . '/../resources/guidelines' => base_path('.ai/tall-architect'),
+            __DIR__ . '/../resources/guidelines' => base_path('.ai/project/tall-architect'),
          ],
          'tall-architect-guidelines',
       );

@@ -34,10 +34,12 @@ class StatusCmd extends Command
 
       $this->table(['Guideline', 'State', '~Tokens'], $rows);
 
-      $this->components->twoColumnDetail(
-         'Reference skill',
-         is_file(__DIR__ . '/../../resources/boost/skills/ui-patterns/SKILL.md') ? 'shipped' : '<fg=red>missing</>',
-      );
+      foreach (['ui-patterns', 'feature-docs', 'feature-audit'] as $skill) {
+         $this->components->twoColumnDetail(
+            'Skill: ' . $skill,
+            is_file(__DIR__ . '/../../resources/boost/skills/' . $skill . '/SKILL.md') ? 'shipped' : '<fg=red>missing</>',
+         );
+      }
       $this->newLine();
 
       return self::SUCCESS;
