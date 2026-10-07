@@ -1,6 +1,6 @@
 # Planning
 
-Multi-step work is tracked in a file under `.ai/planning/`, so any developer or agent can
+Multi-step work is tracked in a file under `.ai/project/planning/`, so any developer or agent can
 take over from a cold start.
 
 ## Procedure
@@ -8,11 +8,13 @@ take over from a cold start.
 - Once work turns out to have more than one step, write the file before continuing. It is not
   a document created for the user — it is how the work is tracked. Never offer it, never ask
   whether to create it.
-- **Write it straight to its final location:** `.ai/planning/<year>/<month>/<YYYY-MM-DD>_<feature>.md`,
+- **Write it straight to its final location:** `.ai/project/planning/<year>/<month>/<YYYY-MM-DD>_<feature>.md`,
   dated by when the work starts. Nothing is moved or archived later.
 - Update it as the work moves: state, milestones, decisions. Overwrite, don't append —
   the file describes how things *are*, not what happened. The history is in the git log.
 - Commit it with the code it belongs to, not separately.
+- Reference agreed behavior in `.ai/project/features/` and audit findings in `.ai/project/audits/`.
+  Keep milestones and implementation gaps here; do not duplicate feature rules or audit coverage.
 - To pick up unfinished work, look at the current and previous month folder for files with
   open milestones. When starting work in an area that has been touched before, look for its
   earlier file.
@@ -41,7 +43,7 @@ is an open milestone. If a milestone needs a plan of its own, it is its own feat
   makes it obvious, drop the entry.
 
 Decisions that reach beyond this feature — a deprecated subsystem, a convention for the whole
-app — go into `.ai/guidelines/app.md`, not here; one line here pointing at them is enough.
+app — go into `.ai/project/guidelines/app.md`, not here; one line here pointing at them is enough.
 
 When you add to `app.md`, fit the entry into the existing structure: put it in the section it
 belongs to, merge it with a rule that already covers the same ground, and replace a rule the

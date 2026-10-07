@@ -2,12 +2,25 @@
 
 namespace Aaix\LaravelTallArchitect\Tests\Feature;
 
+use Aaix\LaravelTallArchitect\TallArchitectServiceProvider;
 use Aaix\LaravelTallArchitect\Tests\TestCase;
 use Illuminate\Support\Facades\Blade;
 use PHPUnit\Framework\Attributes\Test;
 
 class BoostGuidelineTest extends TestCase
 {
+   #[Test]
+   public function guidelines_publish_under_the_project_namespace(): void
+   {
+      $paths = TallArchitectServiceProvider::pathsToPublish(
+         TallArchitectServiceProvider::class,
+         'tall-architect-guidelines',
+      );
+
+      $this->assertSame([base_path('.ai/project/tall-architect')], array_values($paths));
+      $this->assertFileExists(array_key_first($paths) . '/feature-docs.md');
+   }
+
    protected function setUp(): void
    {
       parent::setUp();
@@ -26,6 +39,8 @@ class BoostGuidelineTest extends TestCase
       $this->assertDirectoryExists($this->boostResourcePath('guidelines'));
       $this->assertFileExists($this->boostResourcePath('guidelines/tall-architect.blade.php'));
       $this->assertFileExists($this->boostResourcePath('skills/ui-patterns/SKILL.md'));
+      $this->assertFileExists($this->boostResourcePath('skills/feature-docs/SKILL.md'));
+      $this->assertFileExists($this->boostResourcePath('skills/feature-audit/SKILL.md'));
    }
 
    #[Test]
@@ -39,9 +54,11 @@ class BoostGuidelineTest extends TestCase
    #[Test]
    public function the_skill_carries_the_frontmatter_boost_requires(): void
    {
-      $content = (string) file_get_contents($this->boostResourcePath('skills/ui-patterns/SKILL.md'));
+      foreach (['ui-patterns', 'feature-docs', 'feature-audit'] as $skill) {
+         $content = (string) file_get_contents($this->boostResourcePath('skills/' . $skill . '/SKILL.md'));
 
-      $this->assertMatchesRegularExpression('/^---\s*\nname:\s*ui-patterns\s*\ndescription:\s*\S/', $content);
+         $this->assertMatchesRegularExpression('/^---\s*\nname:\s*' . preg_quote($skill, '/') . '\s*\ndescription:\s*\S/', $content);
+      }
    }
 
    #[Test]
@@ -54,14 +71,17 @@ class BoostGuidelineTest extends TestCase
       $this->assertStringStartsWith('# TALL Architect', $rendered);
       $this->assertStringContainsString('Content of the tall-architect guideline.', $rendered);
       $this->assertStringContainsString('Content of the nontech-user guideline.', $rendered);
+      $this->assertStringContainsString('Content of the feature-docs guideline.', $rendered);
    }
 
    #[Test]
    public function the_guideline_omits_a_disabled_guideline(): void
    {
       config()->set('tall-architect.guidelines.nontech-user', false);
+      config()->set('tall-architect.guidelines.feature-docs', false);
 
       $this->assertStringNotContainsString('Content of the nontech-user guideline.', $this->renderGuideline());
+      $this->assertStringNotContainsString('Content of the feature-docs guideline.', $this->renderGuideline());
    }
 
    protected function renderGuideline(): string

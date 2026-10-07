@@ -17,6 +17,7 @@ return [
       'engineering' => env('TALL_ARCHITECT_ENGINEERING', true),
       'tall-architect' => env('TALL_ARCHITECT_TALL_ARCHITECT', true),
       'planning' => env('TALL_ARCHITECT_PLANNING', true),
+      'feature-docs' => env('TALL_ARCHITECT_FEATURE_DOCS', true),
       'design-system' => env('TALL_ARCHITECT_DESIGN_SYSTEM', true),
       'ux-principles' => env('TALL_ARCHITECT_UX_PRINCIPLES', true),
       'nontech-user' => env('TALL_ARCHITECT_NONTECH_USER', true),
