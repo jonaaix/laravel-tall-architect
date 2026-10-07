@@ -34,7 +34,7 @@ class StatusCmd extends Command
 
       $this->table(['Guideline', 'State', '~Tokens'], $rows);
 
-      foreach (['ui-patterns', 'feature-docs', 'feature-audit'] as $skill) {
+      foreach (['ui-patterns', 'feature-book', 'feature-book-audit'] as $skill) {
          $this->components->twoColumnDetail(
             'Skill: ' . $skill,
             is_file(__DIR__ . '/../../resources/boost/skills/' . $skill . '/SKILL.md') ? 'shipped' : '<fg=red>missing</>',

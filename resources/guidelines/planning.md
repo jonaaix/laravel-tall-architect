@@ -13,7 +13,7 @@ take over from a cold start.
 - Update it as the work moves: state, milestones, decisions. Overwrite, don't append —
   the file describes how things *are*, not what happened. The history is in the git log.
 - Commit it with the code it belongs to, not separately.
-- Reference agreed behavior in `.ai/project/features/` and audit findings in `.ai/project/audits/`.
+- Reference agreed behavior in the Feature Book (`.ai/project/features/`) and audit findings in `.ai/project/audits/`.
   Keep milestones and implementation gaps here; do not duplicate feature rules or audit coverage.
 - To pick up unfinished work, look at the current and previous month folder for files with
   open milestones. When starting work in an area that has been touched before, look for its

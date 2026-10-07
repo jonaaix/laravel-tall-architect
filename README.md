@@ -40,10 +40,10 @@ the result.
 
 | Content | Vehicle | Loaded |
 |---|---|---|
-| `engineering`, `tall-architect`, `planning`, `feature-docs`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
+| `engineering`, `tall-architect`, `planning`, `feature-book`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
 | `ui-patterns` | Boost skill `ui-patterns` | on demand, when the agent asks for it |
-| Feature documentation workflow | Boost skill `feature-docs` | when creating or substantially revising feature descriptions |
-| Comprehensive implementation review | Boost skill `feature-audit` | only on explicit user request |
+| Feature Book chapters | Boost skill `feature-book` | when creating or substantially revising a chapter |
+| Comprehensive implementation review | Boost skill `feature-book-audit` | only on explicit user request |
 
 Agent rules rot the moment they are copied. Here they stay a composer dependency, so a correction rolls out everywhere
 instead of into one repository at a time.
@@ -54,10 +54,12 @@ All seven are on by default, and each has its own flag:
 
 ```dotenv
 TALL_ARCHITECT_NONTECH_USER=false
-TALL_ARCHITECT_FEATURE_DOCS=false
+TALL_ARCHITECT_FEATURE_BOOK=false
 ```
 
 Run `php artisan boost:update` afterwards to recompose the agent files.
+
+`TALL_ARCHITECT_FEATURE_DOCS` from 1.4.0 is still read when `TALL_ARCHITECT_FEATURE_BOOK` is not set.
 
 To replace the shipped set with a project's own, publish it with `php artisan vendor:publish --tag=tall-architect-guidelines`
 and point `TALL_ARCHITECT_PATH` at the resulting directory.
@@ -65,33 +67,33 @@ and point `TALL_ARCHITECT_PATH` at the resulting directory.
 The publish destination is `.ai/project/tall-architect`. Guideline flags control the always-on text;
 they do not remove the separately shipped skills.
 
-## Feature descriptions and audits
+## Feature Book and audits
 
-Feature descriptions preserve agreed user intent independently of the implementation. They live at
+The Feature Book preserves agreed user intent independently of the implementation, one chapter per feature. Chapters live at
 `.ai/project/features/<domain>/<feature>.md`, grouped by business capability, with stable feature
-IDs, an immutable creation date, and inline YAML tags such as `tags: [billing, payments]`. Every document
-uses three plain-language chapters: What is it for?, How does it work?, and Examples. Feature-specific
+IDs, an immutable creation date, and inline YAML tags such as `tags: [billing, payments]`. Every chapter
+uses three plain-language sections: What is it for?, How does it work?, and Examples. Feature-specific
 subheadings are welcome; rule IDs and code maps are not required. Technical implementation choices remain
 open unless explicitly required or necessary for the agreed behavior. Relevant technical details remain part
-of the description.
+of the chapter.
 A compact `index.md` provides navigation. Plans track unfinished work;
-feature descriptions state the agreed behavior.
+the Feature Book states the agreed behavior.
 
-The `feature-docs` guideline tells agents to read relevant descriptions before making changes and update
+The `feature-book` guideline tells agents to write chapters as part of the work, without offering or asking, to read relevant chapters before making changes and update
 affected passages with authorized behavior changes. Refactors do not require rewriting the specification.
 Code observations alone never establish requirements. Agents may suggest an audit after substantial changes
 or discovered contradictions; elapsed time alone does not trigger a reminder or an automatic audit.
 
 Example requests:
 
-- “Use feature-docs to document booking cancellation from our agreed requirements. Clarify behavior inferred
+- “Use feature-book to write the booking cancellation chapter from our agreed requirements. Clarify behavior inferred
   only from code before including it.”
-- “Use feature-audit to comprehensively check billing against its feature descriptions.”
-- “Use feature-audit to review all documented features for up to two hours and save progress for resuming.”
+- “Use feature-book-audit to comprehensively check billing against its chapters.”
+- “Use feature-book-audit to review the whole Feature Book for up to two hours and save progress for resuming.”
 
 Audits write coverage, evidence, findings, and continuation state to
 `.ai/project/audits/<YYYY-MM-DD>_<scope>_<unique-run-id>/report.md`. They distinguish static inspection from
-executed tests, extract checks from the descriptions without imposing technical choices, preserve unresolved
+executed tests, extract checks from the chapters without imposing technical choices, preserve unresolved
 and pending checks, and do not repair code or rewrite requirements.
 Long runs can resume after checking for changed inputs. Time/token limits depend on available measurement;
 the skill cannot determine remaining account quota or provide background scheduling itself.
@@ -104,10 +106,10 @@ Before continuing work in an existing project:
 1. Move `.ai/planning/` to `.ai/project/planning/`, preserving its year/month folders.
 2. If present, move `.ai/guidelines/` to `.ai/project/guidelines/` and published `.ai/tall-architect/`
    overrides to `.ai/project/tall-architect/`. Update `TALL_ARCHITECT_PATH` if it points at the old location.
-3. If early feature descriptions or audits exist under `.ai/features/` or `.ai/audits/`, move them into
+3. If early feature chapters or audits exist under `.ai/features/` or `.ai/audits/`, move them into
    `.ai/project/features/` and `.ai/project/audits/` respectively. Update affected relative links.
 4. Run `php artisan boost:update` to refresh generated agent instructions. Projects overriding the shipped
-   guideline directory must incorporate the updated planning guideline and new `feature-docs.md` there too.
+   guideline directory must incorporate the updated planning guideline and new `feature-book.md` there too.
 
 Merge existing destination folders deliberately; do not overwrite conflicting files. Package source files
 remain under `resources/guidelines/` and `resources/boost/skills/`.

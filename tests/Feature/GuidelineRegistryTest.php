@@ -23,7 +23,7 @@ class GuidelineRegistryTest extends TestCase
    public function it_knows_every_shipped_guideline(): void
    {
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-docs', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'tall-architect', 'planning', 'feature-book', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->all()->keys()->all(),
       );
    }
@@ -32,7 +32,7 @@ class GuidelineRegistryTest extends TestCase
    public function it_enables_the_default_set(): void
    {
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-docs', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'tall-architect', 'planning', 'feature-book', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }
@@ -65,7 +65,7 @@ class GuidelineRegistryTest extends TestCase
       config()->set('tall-architect.guidelines', []);
 
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-docs', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'tall-architect', 'planning', 'feature-book', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }
