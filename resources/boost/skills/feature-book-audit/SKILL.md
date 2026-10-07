@@ -1,23 +1,23 @@
 ---
-name: feature-audit
-description: On explicit user request, comprehensively audit implementation against feature behavior documents for a feature, domain, or all documented features, with persistent coverage and resumable findings. Do not invoke for routine edits or reminders.
+name: feature-book-audit
+description: On explicit user request, comprehensively audit the implementation against the Feature Book for a feature, a domain, or the whole book, with persistent coverage and resumable findings. Do not invoke for routine edits or reminders.
 ---
 
-# Feature Audit
+# Feature Book Audit
 
-Compare implementation with the current agreed feature descriptions in `.ai/project/features/`.
+Compare implementation with the current agreed chapters of the Feature Book in `.ai/project/features/`.
 Start only on an explicit audit request. The request authorizes reports and checkpoints — not
-implementation repairs, requirement changes, or new permanent tests. The description says what
+implementation repairs, requirement changes, or new permanent tests. The chapter says what
 should happen; the code never does.
 
 ## Scope
 
-- Resolve the requested feature, domain, or all documented features. If the target is unclear
+- Resolve the requested feature, domain, or the whole Feature Book. If the target is unclear
   and cannot be inferred, ask before an expensive scan.
-- Follow linked descriptions and cross-feature interactions relevant to the target. Inspecting
+- Follow linked chapters and cross-feature interactions relevant to the target. Inspecting
   a neighbouring feature for support is not auditing it.
-- Navigate by the index, but enumerate the documents in scope — unindexed files exist.
-- Missing descriptions and unresolved requirements are coverage gaps, not permission to infer
+- Navigate by the index, but enumerate the chapters in scope — unindexed files exist.
+- Missing chapters and unresolved requirements are coverage gaps, not permission to infer
   requirements from code. Report them and continue with what can be assessed.
 - Honor explicit limits when measurable; state what you cannot measure. Never infer remaining
   quota. Stop when the scope is covered or the limit is reached.
@@ -27,25 +27,25 @@ should happen; the code never does.
 - Create `.ai/project/audits/<year>/<month>/<YYYY-MM-DD>_<scope>_<unique-run-id>/report.md`.
   Never overwrite a different run. Show the target tree before writing.
 - The report is the checkpoint. Save after each feature or substantial batch.
-- Record scope, start time, completion state, limits, specification paths, feature IDs, code
+- Record scope, start time, completion state, limits, chapter paths, feature IDs, code
   revision and worktree state. **A commit alone is not a baseline** when local changes exist:
-  record changed and untracked paths with content hashes, specification files included.
+  record changed and untracked paths with content hashes, chapter files included.
 - Never copy secrets or whole source files into a report.
 - Track multi-step work as required by the planning guideline, linking to the report rather than
   duplicating coverage.
 
 ## Extracting checks
 
-- Read all three chapters — What is it for?, How does it work?, Examples — including
+- Read all three sections — What is it for?, How does it work?, Examples — including
   feature-specific subheadings.
-- Extract the checkable statements before deep review, throughout the document.
-- Assign check IDs **in the report only**. Never insert rule IDs into feature descriptions. Each
-  ID links to the document, the section and a short source excerpt; keep those when resuming.
+- Extract the checkable statements before deep review, throughout the chapter.
+- Assign check IDs **in the report only**. Never insert rule IDs into chapters. Each
+  ID links to the chapter, the section and a short source excerpt; keep those when resuming.
 
 ## Judging the implementation
 
 - Check intended outcomes and explicit technical requirements. Never substitute your preferred
-  architecture. Choices the description leaves open are implementation freedom, not defects, and
+  architecture. Choices the chapter leaves open are implementation freedom, not defects, and
   incidental detail in an example is not a restriction. Flag ambiguity instead of inventing a
   stricter contract.
 - Trace the applicable execution paths: entry points, authorization, validation, services,
@@ -85,7 +85,7 @@ defect. Conflicting requirements are specification questions.
 
 ## Resuming
 
-Compare the recorded baseline with current code and descriptions. Recheck anything affected by
+Compare the recorded baseline with current code and chapters. Recheck anything affected by
 changes, including shared dependencies, and mark that coverage stale until rechecked — never
 carry an old outcome forward as current evidence. Preserve the original baseline and identify
 subsequent ones.
