@@ -100,12 +100,17 @@ the skill cannot determine remaining account quota or provide background schedul
 
 ## Breaking change: project artifact paths
 
-Project-owned artifacts now live under `.ai/project/`. There is no legacy-path fallback or automatic migration.
+Planning files, Feature Book chapters and audit reports now live under `.ai/project/`, and published guideline
+overrides under `.ai/project/tall-architect/`. There is no legacy-path fallback or automatic migration.
+
+`.ai/guidelines/`, `.ai/skills/` and `.ai/rules/` belong to Boost, which reads them from these fixed paths. They stay
+where they are — project guidelines, `app.md` included, remain in `.ai/guidelines/`.
 Before continuing work in an existing project:
 
 1. Move `.ai/planning/` to `.ai/project/planning/`, preserving its year/month folders.
-2. If present, move `.ai/guidelines/` to `.ai/project/guidelines/` and published `.ai/tall-architect/`
-   overrides to `.ai/project/tall-architect/`. Update `TALL_ARCHITECT_PATH` if it points at the old location.
+2. If present, move published `.ai/tall-architect/` overrides to `.ai/project/tall-architect/`. Update
+   `TALL_ARCHITECT_PATH` if it points at the old location. If 1.4.0 led you to move `.ai/guidelines/` to
+   `.ai/project/guidelines/`, move it back — Boost does not read the new location.
 3. If early feature chapters or audits exist under `.ai/features/` or `.ai/audits/`, move them into
    `.ai/project/features/` and `.ai/project/audits/` respectively. Update affected relative links.
 4. Run `php artisan boost:update` to refresh generated agent instructions. Projects overriding the shipped

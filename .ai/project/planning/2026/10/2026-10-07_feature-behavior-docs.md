@@ -32,7 +32,7 @@ Existing user changes to AGENTS.md and CLAUDE.md were not modified. Changes are 
 - The feature-book skill supports initial chapters and substantial revisions. The explicitly requested feature-book-audit skill performs comprehensive comparison of statements extracted from chapters with persistent reports, evidence, coverage, and resume checkpoints.
 - Audit reports live at `.ai/project/audits/<date>_<scope>_<unique-run-id>/report.md`. Audits do not authorize repairs or requirement changes. Interrupted and unverifiable coverage remains explicit.
 - Audit reminders are tied to substantial changes or discovered contradictions during normal work. Age alone never triggers a reminder; agents do not scan audit history on every task.
-- Project-owned planning, app guidelines, Feature Book chapters, audit reports, and published package guideline overrides use `.ai/project/`. The breaking change requires manual migration; no compatibility fallback is provided. Package resources retain their existing source locations.
+- Planning, Feature Book chapters, audit reports, and published package guideline overrides use `.ai/project/`. Project guidelines including `app.md`, skills and rules stay in `.ai/guidelines/`, `.ai/skills/` and `.ai/rules/`, the fixed paths Boost reads. The breaking change requires manual migration; no compatibility fallback is provided. Package resources retain their existing source locations.
 - No scheduler, quota detection, automatic audit, or guaranteed background execution is introduced.
 - Named Feature Book with chapters, not documentation: Boost only allows documentation files on explicit request, so agents never created them. The guideline states chapters are part of the work and the user's standing request, like the planning file.
 
