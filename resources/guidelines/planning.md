@@ -43,7 +43,7 @@ is an open milestone. If a milestone needs a plan of its own, it is its own feat
   makes it obvious, drop the entry.
 
 Decisions that reach beyond this feature — a deprecated subsystem, a convention for the whole
-app — go into `.ai/project/guidelines/app.md`, not here; one line here pointing at them is enough.
+app — go into `.ai/guidelines/app.md`, not here; one line here pointing at them is enough.
 
 When you add to `app.md`, fit the entry into the existing structure: put it in the section it
 belongs to, merge it with a rule that already covers the same ground, and replace a rule the
