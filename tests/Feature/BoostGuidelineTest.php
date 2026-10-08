@@ -2,25 +2,12 @@
 
 namespace Aaix\LaravelTallArchitect\Tests\Feature;
 
-use Aaix\LaravelTallArchitect\TallArchitectServiceProvider;
 use Aaix\LaravelTallArchitect\Tests\TestCase;
 use Illuminate\Support\Facades\Blade;
 use PHPUnit\Framework\Attributes\Test;
 
 class BoostGuidelineTest extends TestCase
 {
-   #[Test]
-   public function guidelines_publish_under_the_project_namespace(): void
-   {
-      $paths = TallArchitectServiceProvider::pathsToPublish(
-         TallArchitectServiceProvider::class,
-         'tall-architect-guidelines',
-      );
-
-      $this->assertSame([base_path('.ai/project/tall-architect')], array_values($paths));
-      $this->assertFileExists(array_key_first($paths) . '/feature-book.md');
-   }
-
    protected function setUp(): void
    {
       parent::setUp();

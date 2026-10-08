@@ -57,15 +57,10 @@ TALL_ARCHITECT_NONTECH_USER=false
 TALL_ARCHITECT_FEATURE_BOOK=false
 ```
 
-Run `php artisan boost:update` afterwards to recompose the agent files.
-
-`TALL_ARCHITECT_FEATURE_DOCS` from 1.4.0 is still read when `TALL_ARCHITECT_FEATURE_BOOK` is not set.
-
-To replace the shipped set with a project's own, publish it with `php artisan vendor:publish --tag=tall-architect-guidelines`
-and point `TALL_ARCHITECT_PATH` at the resulting directory.
-
-The publish destination is `.ai/project/tall-architect`. Guideline flags control the always-on text;
+Run `php artisan boost:update` afterwards to recompose the agent files. The flags control the always-on text;
 they do not remove the separately shipped skills.
+
+To replace the shipped set with a project's own, point `TALL_ARCHITECT_PATH` at a directory holding files of the same names.
 
 ## Feature Book and audits
 
@@ -97,27 +92,6 @@ executed tests, extract checks from the chapters without imposing technical choi
 and pending checks, and do not repair code or rewrite requirements.
 Long runs can resume after checking for changed inputs. Time/token limits depend on available measurement;
 the skill cannot determine remaining account quota or provide background scheduling itself.
-
-## Breaking change: project artifact paths
-
-Planning files, Feature Book chapters and audit reports now live under `.ai/project/`, and published guideline
-overrides under `.ai/project/tall-architect/`. There is no legacy-path fallback or automatic migration.
-
-`.ai/guidelines/`, `.ai/skills/` and `.ai/rules/` belong to Boost, which reads them from these fixed paths. They stay
-where they are — project guidelines, `app.md` included, remain in `.ai/guidelines/`.
-Before continuing work in an existing project:
-
-1. Move `.ai/planning/` to `.ai/project/planning/`, preserving its year/month folders.
-2. If present, move published `.ai/tall-architect/` overrides to `.ai/project/tall-architect/`. Update
-   `TALL_ARCHITECT_PATH` if it points at the old location. If 1.4.0 led you to move `.ai/guidelines/` to
-   `.ai/project/guidelines/`, move it back — Boost does not read the new location.
-3. If early feature chapters or audits exist under `.ai/features/` or `.ai/audits/`, move them into
-   `.ai/project/features/` and `.ai/project/audits/` respectively. Update affected relative links.
-4. Run `php artisan boost:update` to refresh generated agent instructions. Projects overriding the shipped
-   guideline directory must incorporate the updated planning guideline and new `feature-book.md` there too.
-
-Merge existing destination folders deliberately; do not overwrite conflicting files. Package source files
-remain under `resources/guidelines/` and `resources/boost/skills/`.
 
 ## Keeping projects current
 

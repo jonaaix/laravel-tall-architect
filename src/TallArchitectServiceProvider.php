@@ -32,12 +32,5 @@ class TallArchitectServiceProvider extends ServiceProvider
          ],
          'tall-architect-config',
       );
-
-      $this->publishes(
-         [
-            __DIR__ . '/../resources/guidelines' => base_path('.ai/project/tall-architect'),
-         ],
-         'tall-architect-guidelines',
-      );
    }
 }
