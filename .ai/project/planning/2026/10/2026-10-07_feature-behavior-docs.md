@@ -4,14 +4,14 @@ Ship the Feature Book — readable chapters of agreed feature behavior — and a
 
 # Milestones
 
-- [done] Inspect existing guidelines, skill packaging, registry, and tests.
-- [done] Agree the hybrid maintenance workflow and separate V1 audit skill.
-- [done] Implement the feature-book guideline and feature-book and feature-book-audit skills.
-- [done] Register the guideline, expose all skills in status, and document usage.
-- [done] Move this plan and the planning path to `.ai/project/`.
-- [done] Build distribution, validate skills, and run the package suite and diff checks.
+- [x] Inspect existing guidelines, skill packaging, registry, and tests.
+- [x] Agree the hybrid maintenance workflow and separate V1 audit skill.
+- [x] Implement the feature-book guideline and feature-book and feature-book-audit skills.
+- [x] Register the guideline, expose all skills in status, and document usage.
+- [x] Move this plan and the planning path to `.ai/project/`.
+- [x] Build distribution, validate skills, and run the package suite and diff checks.
 
-- [done] Adopt three plain-language chapters, remove required rule IDs and code maps, and adapt audit coverage.
+- [x] Adopt three plain-language chapters, remove required rule IDs and code maps, and adapt audit coverage.
 
 # State
 

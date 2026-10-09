@@ -22,7 +22,7 @@ take over from a cold start.
 ## File structure
 
 - **Goal** — what this feature does, and how you can tell it's finished.
-- **Milestones** — the steps to get there, in order, each marked open or done.
+- **Milestones** — the steps to get there, in order, as `- [ ]` / `- [x]` checkboxes.
 - **State** — where the work stands right now: what exists in the code, what is still missing.
 - **Decisions** — what was settled and why, including what was rejected. Only what explains
   the current state; not the back and forth that led to it.
