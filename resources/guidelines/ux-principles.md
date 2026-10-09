@@ -1,6 +1,6 @@
 # UX Principles
 
-Portable rules for admin panels and ERPs. No framework, no project specifics.
+Portable rules for admin panels, ERPs and platforms. No framework, no project specifics.
 Rules of thumb — deviate knowingly, not by accident.
 
 ## State & feedback
@@ -85,13 +85,25 @@ Movement explains a change; it never announces itself.
 - **Filters beside the table** where the viewport allows, floating over it when not — never
   above the table's own toolbar.
 
-## Components & wording
+## Components
 
 - **Two call sites is a coincidence, three is a component.** Search before building; a
   near-duplicate is worse than a long file.
 - **Wording never goes into a shared component.** It takes labels as props — the
   application owns the strings.
+
+## Wording
+
+- **Every text reads the way Amazon or a professional SaaS product would write it** —
+  labels, hints, placeholders, messages and mails alike: short, plain, professional, in
+  every language. Write it, then cut it in half.
 - **Every string goes through the translation layer**, English as the key.
 - **UI text names things, it doesn't explain them.** Labels are terms, not phrases —
-  "Slowest", not "Takes the longest". All UI text is product copy: if it wouldn't pass
-  in a professional SaaS interface, rewrite it.
+  "Slowest", not "Takes the longest"; "Send a message", not "You will never see their
+  address".
+- **Say only what the person needs to act.** Never how it works behind the scenes, what
+  is stored, who sees what, or why a rule exists — unless they asked.
+- **No sentiment, slang or cuteness.** "Thank you for your support", not "You made our
+  day". No exclamation marks for enthusiasm, no religious, community or in-group jargon.
+- **Platform copy stays neutral.** A tenant's own content may carry its own voice; the
+  platform's never does.
