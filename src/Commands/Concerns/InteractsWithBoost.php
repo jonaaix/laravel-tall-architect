@@ -30,29 +30,4 @@ trait InteractsWithBoost
 
       return in_array(self::PACKAGE, (array) ($config['packages'] ?? []), true);
    }
-
-   protected function warnAboutMissingBoost(): void
-   {
-      $this->components->warn('Laravel Boost is not installed. The guidelines cannot be composed into your agent files.');
-      $this->components->bulletList(['composer require laravel/boost --dev', 'php artisan boost:install']);
-   }
-
-   protected function refreshAgentFiles(): int
-   {
-      if (!$this->boostIsInstalled()) {
-         $this->warnAboutMissingBoost();
-
-         return self::FAILURE;
-      }
-
-      if (!$this->boostIsConfigured()) {
-         $this->components->warn('Laravel Boost is installed but not set up yet. Run [php artisan boost:install] once.');
-
-         return self::FAILURE;
-      }
-
-      $arguments = $this->boostKnowsThisPackage() ? [] : ['--discover' => true];
-
-      return $this->call('boost:update', $arguments);
-   }
 }

@@ -105,7 +105,6 @@ php artisan boost:update
 | Command | Purpose |
 |---|---|
 | `tall-architect:status` | Boost state and every guideline with its state and token cost |
-| `tall-architect:sync` | `boost:update` with a guard: refuses when nothing is active, reports what got composed |
 
 ## License
 

@@ -3,7 +3,6 @@
 namespace Aaix\LaravelTallArchitect;
 
 use Aaix\LaravelTallArchitect\Commands\StatusCmd;
-use Aaix\LaravelTallArchitect\Commands\SyncCmd;
 use Illuminate\Support\ServiceProvider;
 
 class TallArchitectServiceProvider extends ServiceProvider
@@ -22,7 +21,6 @@ class TallArchitectServiceProvider extends ServiceProvider
       }
 
       $this->commands([
-         SyncCmd::class,
          StatusCmd::class,
       ]);
 
