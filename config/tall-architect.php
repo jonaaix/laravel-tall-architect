@@ -19,6 +19,7 @@ return [
       'planning' => env('TALL_ARCHITECT_PLANNING', true),
       'feature-book' => env('TALL_ARCHITECT_FEATURE_BOOK', true),
       'sidenotes' => env('TALL_ARCHITECT_SIDENOTES', true),
+      'ideapool' => env('TALL_ARCHITECT_IDEAPOOL', true),
       'board' => env('TALL_ARCHITECT_BOARD', true),
       'design-system' => env('TALL_ARCHITECT_DESIGN_SYSTEM', true),
       'ux-principles' => env('TALL_ARCHITECT_UX_PRINCIPLES', true),

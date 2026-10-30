@@ -8,12 +8,12 @@ Two always-on guidelines: a shared board for agents working in parallel in one c
 - [x] Agree sidenotes scope, name and cleanup rule.
 - [x] Add both guidelines with config flags, README and tests.
 - [x] Remove `tall-architect:sync`.
-- [ ] User reviews the result before push.
+- [x] User reviews the result before push.
 - [ ] Observe how sidenotes grow in real projects; decide whether they need a limit.
 
 # State
 
-Both guidelines are registered after `feature-book` and on by default. Committed locally, not pushed, no release.
+Both guidelines are registered after `feature-book` and on by default. Released in 1.5.0.
 
 # Decisions
 
@@ -30,5 +30,3 @@ Both guidelines are registered after `feature-book` and on by default. Committed
 - `tall-architect:sync` removed: projects only use `boost:update`.
 
 # Open
-
-- A separate module for ideas the user explicitly defers to later — only user-confirmed entries.
