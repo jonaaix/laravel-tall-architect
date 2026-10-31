@@ -6,15 +6,18 @@ One command builds ready-to-copy agent files with every guideline enabled, in tw
 
 - [x] Move the islands and Filament passages out of `design-system` into the Laravel layer.
 - [x] Rename the `tall-architect` guideline to `laravel-architect`.
-- [ ] Replace `build-guidelines` with `composer build` writing `dist/laravel/` and `dist/generic/`.
+- [x] Replace `build-guidelines` with `composer build` writing `dist/laravel/` and `dist/generic/`.
 
 # State
 
-`design-system` is platform agnostic; its islands and Filament passages live in the Laravel layer, now `laravel-architect`.
+`composer build` writes `dist/laravel/` (all guidelines) and `dist/generic/` (all but `laravel-architect`), each a `CLAUDE.md` plus every skill under `.claude/skills/`. `dist/` stays git-ignored.
 
 # Decisions
 
 - `design-system` belongs to both variants: apart from three islands/Filament passages it only assumes Tailwind. Those passages moved to the Laravel layer.
 - The Laravel layer is named `laravel-architect`, the user's choice over `laravel-stack`. No project uses its env flag or a published config, so the rename breaks nothing.
+
+- Skills ship with both variants so guideline references to them resolve once copied; none of them depends on Laravel.
+- One command for both variants, replacing `build-guidelines`, so two near-identical builds don't drift.
 
 # Open
