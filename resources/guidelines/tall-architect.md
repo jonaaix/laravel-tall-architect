@@ -20,6 +20,11 @@ PHP >= 8.5, Laravel >= 13.x, Filament >= 5.x, Livewire, Alpine.js, Tailwind CSS 
 - **Filament & Islands:** Filament is the panel shell; its shipped pages (login, profile, …) may be used as is. Every new view is a Filament page hosting an island (`aaix/laravel-islands`, tables via `aaix/laravel-islands-datagrid`) — CRUD too, no Filament resources, tables or forms. Alpine only for small UI state in Blade. Exception: SEO-relevant pages are Blade + Alpine — islands render client-side.
 - **Where to reuse from:** `resources/views/components/`, `app/Services/`, and the helpers of both islands packages — inventoried in `islands-development/helpers-index.md`. Blueprints for a view and a data table live in the `islands-development` and `islands-datagrid-development` skills.
 
+## Design System
+- The datagrid ships its own toolbar icons from `@aaix/laravel-islands-datagrid/vue` — islands import them rather than redrawing.
+- The central formatter is `@islands/shared/format.js` — `formatCurrency`, `formatDate`, `formatRelative`, `formatWeight`.
+- Laravel Islands and Filament both ship modal helpers — use them rather than building a modal by hand.
+
 ## Workflow
 - The dev-database ban covers `migrate:fresh`/`refresh`/`reset`/`rollback` and `db:wipe`.
 - The official generators are `artisan`'s and Filament's.

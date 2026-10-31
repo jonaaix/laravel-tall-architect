@@ -35,8 +35,6 @@ columns, menu items.
   and stay in it — never mix within one strip.
 - **Every icon is its own component** with a stable name and fixed viewBox. Never inline
   `<svg>` in a consumer; that forks the visual set between callsites.
-- The datagrid ships its own toolbar icons from `@aaix/laravel-islands-datagrid/vue` —
-  islands import them rather than redrawing.
 - **Icon boxes only beside a heading or a stat value.** In tabs, buttons, cells and hover
   affordances icons ship bare.
 
@@ -84,8 +82,8 @@ content belongs under the toolbar it scrolls past, not above it.
 
 ## Formatting
 
-Numbers, dates, money and weights go through `@islands/shared/format.js` — `formatCurrency`,
-`formatDate`, `formatRelative`, `formatWeight`. Figures use `tabular-nums`.
+Numbers, dates, money and weights go through the project's central formatter. Figures use
+`tabular-nums`.
 Times display in the user's timezone, 24-hour format — never the server's.
 
 ## Charts
@@ -106,5 +104,4 @@ Three parts, both edges drawn: header with title and close button above a
 `border-b border-gray-200 dark:border-white/10`, content, footer above a
 `border-t border-gray-200 dark:border-white/10 pt-4`. Cancel (`tone="secondary"`) left of
 the primary action (`tone="cta"`), both at default size — never `size="sm"` in a modal
-footer. Laravel Islands and Filament both ship modal helpers — use them rather than
-rebuilding this by hand.
+footer.
