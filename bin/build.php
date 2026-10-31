@@ -10,6 +10,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $sourceDir = __DIR__ . '/../resources/guidelines';
 $skillsDir = __DIR__ . '/../resources/boost/skills';
 $distDir = __DIR__ . '/../dist';
+$repoAgentsFile = __DIR__ . '/../AGENTS.md';
 $separator = "\n\n---\n\n";
 
 $variants = [
@@ -104,3 +105,7 @@ foreach ($variants as $variant => $excluded) {
       PHP_EOL,
    ));
 }
+
+copy($distDir . '/laravel/CLAUDE.md', $repoAgentsFile);
+
+fwrite(STDOUT, 'Wrote ' . realpath($repoAgentsFile) . ' from the Laravel variant' . PHP_EOL);

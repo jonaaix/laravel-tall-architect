@@ -18,6 +18,7 @@ One command builds ready-to-copy agent files with every guideline enabled, in tw
 - The Laravel layer is named `laravel-architect`, the user's choice over `laravel-stack`. No project uses its env flag or a published config, so the rename breaks nothing.
 
 - Skills ship with both variants so guideline references to them resolve once copied; none of them depends on Laravel.
+- The build also rewrites this repo's `AGENTS.md` as a plain copy of the Laravel variant, so the repo's agents follow the current rules.
 - One command for both variants, replacing `build-guidelines`, so two near-identical builds don't drift.
 
 # Open

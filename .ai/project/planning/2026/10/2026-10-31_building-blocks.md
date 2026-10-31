@@ -10,7 +10,7 @@ One place that tells agents which package serves which need, so they neither bui
 
 # State
 
-`building-blocks` sits after `laravel-architect`, on by default, only in `dist/laravel/`. `laravel-architect` keeps the view structure rules. Committed locally, not pushed.
+`building-blocks` sits after `laravel-architect`, on by default, only in `dist/laravel/`. `laravel-architect` keeps the view structure rules. Released in 1.6.0.
 
 # Decisions
 
