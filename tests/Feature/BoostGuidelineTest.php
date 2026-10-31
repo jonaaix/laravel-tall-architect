@@ -56,7 +56,7 @@ class BoostGuidelineTest extends TestCase
       $rendered = $this->renderGuideline();
 
       $this->assertStringStartsWith('# TALL Architect', $rendered);
-      $this->assertStringContainsString('Content of the tall-architect guideline.', $rendered);
+      $this->assertStringContainsString('Content of the laravel-architect guideline.', $rendered);
       $this->assertStringContainsString('Content of the nontech-user guideline.', $rendered);
       $this->assertStringContainsString('Content of the feature-book guideline.', $rendered);
    }

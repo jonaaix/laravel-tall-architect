@@ -5,12 +5,12 @@ One command builds ready-to-copy agent files with every guideline enabled, in tw
 # Milestones
 
 - [x] Move the islands and Filament passages out of `design-system` into the Laravel layer.
-- [ ] Rename the `tall-architect` guideline to `laravel-architect`.
+- [x] Rename the `tall-architect` guideline to `laravel-architect`.
 - [ ] Replace `build-guidelines` with `composer build` writing `dist/laravel/` and `dist/generic/`.
 
 # State
 
-`design-system` is platform agnostic; its islands and Filament passages live in the Laravel layer.
+`design-system` is platform agnostic; its islands and Filament passages live in the Laravel layer, now `laravel-architect`.
 
 # Decisions
 

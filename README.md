@@ -40,7 +40,7 @@ the result.
 
 | Content | Vehicle | Loaded |
 |---|---|---|
-| `engineering`, `tall-architect`, `planning`, `feature-book`, `sidenotes`, `ideapool`, `board`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
+| `engineering`, `laravel-architect`, `planning`, `feature-book`, `sidenotes`, `ideapool`, `board`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
 | `ui-patterns` | Boost skill `ui-patterns` | on demand, when the agent asks for it |
 | Feature Book chapters | Boost skill `feature-book` | when creating or substantially revising a chapter |
 | Comprehensive implementation review | Boost skill `feature-book-audit` | only on explicit user request |

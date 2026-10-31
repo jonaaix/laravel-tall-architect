@@ -18,7 +18,7 @@ class CommandsTest extends TestCase
    public function status_lists_every_guideline_with_its_state(): void
    {
       $this->artisan('tall-architect:status')
-         ->expectsOutputToContain('TALL Architect')
+         ->expectsOutputToContain('Laravel Architect')
          ->expectsOutputToContain('Non-technical User Mode')
          ->expectsOutputToContain('Feature Book')
          ->expectsOutputToContain('Skill: feature-book-audit')

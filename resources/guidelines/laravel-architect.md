@@ -1,4 +1,4 @@
-# TALL Stack
+# Laravel Architect
 The Laravel layer on top of the engineering rules: the stack, and where their principles land in it.
 
 ## Tech Stack Standards

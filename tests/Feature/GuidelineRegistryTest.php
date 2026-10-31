@@ -23,7 +23,7 @@ class GuidelineRegistryTest extends TestCase
    public function it_knows_every_shipped_guideline(): void
    {
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'laravel-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->all()->keys()->all(),
       );
    }
@@ -32,7 +32,7 @@ class GuidelineRegistryTest extends TestCase
    public function it_enables_the_default_set(): void
    {
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'laravel-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }
@@ -65,7 +65,7 @@ class GuidelineRegistryTest extends TestCase
       config()->set('tall-architect.guidelines', []);
 
       $this->assertSame(
-         ['engineering', 'tall-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
+         ['engineering', 'laravel-architect', 'planning', 'feature-book', 'sidenotes', 'ideapool', 'board', 'design-system', 'ux-principles', 'nontech-user'],
          $this->registry->enabled()->keys()->all(),
       );
    }
@@ -77,11 +77,11 @@ class GuidelineRegistryTest extends TestCase
 
       $composed = $this->registry->compose();
 
-      $this->assertStringContainsString('Content of the tall-architect guideline.', $composed);
+      $this->assertStringContainsString('Content of the laravel-architect guideline.', $composed);
       $this->assertStringContainsString('Content of the nontech-user guideline.', $composed);
       $this->assertLessThan(
          strpos($composed, '# planning'),
-         strpos($composed, '# tall-architect'),
+         strpos($composed, '# laravel-architect'),
       );
    }
 
