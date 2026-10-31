@@ -16,6 +16,7 @@ return [
    'guidelines' => [
       'engineering' => env('TALL_ARCHITECT_ENGINEERING', true),
       'laravel-architect' => env('TALL_ARCHITECT_LARAVEL_ARCHITECT', true),
+      'building-blocks' => env('TALL_ARCHITECT_BUILDING_BLOCKS', true),
       'planning' => env('TALL_ARCHITECT_PLANNING', true),
       'feature-book' => env('TALL_ARCHITECT_FEATURE_BOOK', true),
       'sidenotes' => env('TALL_ARCHITECT_SIDENOTES', true),

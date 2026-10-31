@@ -10,6 +10,7 @@ class GuidelineRegistry
    public const TITLES = [
       'engineering' => 'Engineering',
       'laravel-architect' => 'Laravel Architect',
+      'building-blocks' => 'Building Blocks',
       'planning' => 'Planning',
       'feature-book' => 'Feature Book',
       'sidenotes' => 'Sidenotes',
@@ -23,6 +24,7 @@ class GuidelineRegistry
    public const DEFAULTS = [
       'engineering' => true,
       'laravel-architect' => true,
+      'building-blocks' => true,
       'planning' => true,
       'feature-book' => true,
       'sidenotes' => true,

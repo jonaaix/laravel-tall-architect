@@ -14,7 +14,7 @@ $separator = "\n\n---\n\n";
 
 $variants = [
    'laravel' => [],
-   'generic' => ['laravel-architect'],
+   'generic' => ['laravel-architect', 'building-blocks'],
 ];
 
 function removeDirectory(string $path): void

@@ -33,14 +33,14 @@ already set up, add the package to the existing selection instead:
 php artisan boost:update --discover
 ```
 
-That is the whole setup. All ten guidelines are now part of every agent file; `php artisan tall-architect:status` shows
+That is the whole setup. All eleven guidelines are now part of every agent file; `php artisan tall-architect:status` shows
 the result.
 
 ## What ships
 
 | Content | Vehicle | Loaded |
 |---|---|---|
-| `engineering`, `laravel-architect`, `planning`, `feature-book`, `sidenotes`, `ideapool`, `board`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
+| `engineering`, `laravel-architect`, `building-blocks`, `planning`, `feature-book`, `sidenotes`, `ideapool`, `board`, `design-system`, `ux-principles`, `nontech-user` | Boost guideline | always, in every agent file |
 | `ui-patterns` | Boost skill `ui-patterns` | on demand, when the agent asks for it |
 | Feature Book chapters | Boost skill `feature-book` | when creating or substantially revising a chapter |
 | Comprehensive implementation review | Boost skill `feature-book-audit` | only on explicit user request |
@@ -50,7 +50,7 @@ instead of into one repository at a time.
 
 ## Choosing the guidelines
 
-All ten are on by default, and each has its own flag:
+All eleven are on by default, and each has its own flag:
 
 ```dotenv
 TALL_ARCHITECT_NONTECH_USER=false
