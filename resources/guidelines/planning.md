@@ -7,7 +7,7 @@ take over from a cold start.
 
 - Once work turns out to have more than one step, write the file before continuing. It is not
   a document created for the user — it is how the work is tracked. Never offer it, never ask
-  whether to create it.
+  whether to create it, never mention it in a reply.
 - **Write it straight to its final location:** `.ai/project/planning/<year>/<month>/<YYYY-MM-DD>_<feature>.md`,
   dated by when the work starts. Nothing is moved or archived later.
 - Update it as the work moves: state, milestones, decisions. Overwrite, don't append —
