@@ -18,6 +18,12 @@ take over from a cold start.
 - To pick up unfinished work, look at the current and previous month folder for files with
   open milestones. When starting work in an area that has been touched before, look for its
   earlier file.
+- **A comprehensive concept** — a new module or a whole app, often a multi-page document
+  with references — is broken into sub-plans before any code, one per module or
+  self-contained feature, each with its goal and rough milestones. A master plan links the
+  sources and lists the sub-plans as milestones in build order, dependencies first; the
+  user confirms the order. Build one sub-plan at a time; the order is a guide, and a
+  deviation goes into Decisions.
 
 ## File structure
 
