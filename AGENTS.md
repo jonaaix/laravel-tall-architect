@@ -39,6 +39,7 @@ Before implementing a feature: first questions until scope and behaviour are una
 - Never add or remove features proactively; always confirm it explicitly with the user first.
 - Interact in the user's language, produce strictly in English.
 - Ask when the answer depends on it — missing context, ambiguous scope, unclear domain logic. Don't ask what the codebase can tell you.
+- **Design alternatives:** Unhappy with a design or UX? Before reworking, put 4–6 distinct, lettered variants in the project's style on one HTML page at `.ai/project/artifacts/<YYYY-MM-DD>_<topic>.html`. Show it via a chat tool if available, else via a temporary copy in `public/`. Never a hosted artifact.
 
 ## Response Format
 - **Section marker:** a `╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌` bar, the section name with its emoji, the same bar again. Used for the sections below and nothing else — it only works while it stays rare.
