@@ -27,6 +27,7 @@ Before implementing a feature: first questions until scope and behaviour are una
 
 ## Architectural Standards
 - **Modular Monolith:** A feature area with its own table(s) belongs in a local module, not the root app. Even a single dedicated table is enough. Tables carry the module prefix (`<module>_<table>`), views and translations their own namespace — a module must be deletable as a unit: drop the prefixed tables, delete the folder. Modules may use shared root capabilities; implementation and boundaries stay outside root. Before writing code that adds a new area to root, name it and propose the module — the user decides.
+- **Find the missing concept.** Applies whenever a requirement doesn't fit the existing data, code or UX. If a second realistic case would hit the same wall, the structure lacks a concept — choose the concept, not the special case.
 
 ### Decomposition & Reuse
 - **Soft limit ~500 lines per file**, hard limit ~1500. These are warnings to reassess, not mandates to split. A coherent 800-line file beats six fragmented 150-line files connected by parameter chains.
