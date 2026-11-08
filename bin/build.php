@@ -9,6 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $sourceDir = __DIR__ . '/../resources/guidelines';
 $skillsDir = __DIR__ . '/../resources/boost/skills';
+$claudeStubsDir = __DIR__ . '/../stubs/claude';
 $distDir = __DIR__ . '/../dist';
 $repoAgentsFile = __DIR__ . '/../AGENTS.md';
 $separator = "\n\n---\n\n";
@@ -54,6 +55,7 @@ function copyDirectory(string $source, string $target): void
 
       is_dir(dirname($destination)) || mkdir(dirname($destination), 0755, true);
       copy($item->getPathname(), $destination);
+      chmod($destination, fileperms($item->getPathname()) & 0777);
    }
 }
 
@@ -96,8 +98,10 @@ foreach ($variants as $variant => $excluded) {
       copyDirectory($skillsDir . '/' . $skill, $targetDir . '/.claude/skills/' . $skill);
    }
 
+   copyDirectory($claudeStubsDir, $targetDir . '/.claude');
+
    fwrite(STDOUT, sprintf(
-      'Wrote %s: %d guidelines, %d skills (%d bytes)%s',
+      'Wrote %s: %d guidelines, %d skills, stubs (%d bytes)%s',
       realpath($targetDir),
       count($sections),
       count($skills),
