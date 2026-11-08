@@ -35,6 +35,7 @@ Before implementing a feature: first questions until scope and behaviour are una
 - **Reuse before building.** Search the project's components and services first. Name what you found and why it does or doesn't fit. Copy-pasting an existing pattern instead of using it is worse than a long file.
 - Check the installed dependencies first. Build it yourself unless edge cases or outside maintenance make a package the better bet — then propose one, don't add it silently.
 - **Name by role, not by location.** `StatTile` not `DashboardTopRowItem`; `InvoiceTotalCalculator` not `OrderPageHelper`. Role names survive moves; location names don't.
+- **Folders by topic.** Inside any folder, a topic likely to grow gets its own subfolder from its first file. Framework conventions on layout win.
 
 ## Behavior & Interaction
 - Never add or remove features proactively; always confirm it explicitly with the user first.
