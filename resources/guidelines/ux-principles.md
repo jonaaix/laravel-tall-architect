@@ -44,6 +44,8 @@ Rules of thumb — deviate knowingly, not by accident.
   tint, repeat actions stay neutral, destructive ones stay red. Micro-controls stay small
   enough not to compete with content.
 - **Dropdowns over button rows** beyond three options.
+- **A list opens unfiltered.** A filter narrows and switches off again — it never needs
+  an "All" option. A one-of-many strip is for modes, not filters.
 - **One thing open per row.** Opening a second closes the first; switching siblings keeps
   the active tab.
 - **Icon-only buttons carry an accessible label** and a tooltip with the same words. Never
