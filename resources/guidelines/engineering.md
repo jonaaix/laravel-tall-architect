@@ -22,7 +22,7 @@ Before implementing a feature: first questions until scope and behaviour are una
 - Prefer a DTO over an array when the structure is stable.
 
 ## i18n
-- Don't create translation entries if you are not explicitly asked for it.
+- Every new UI string gets its entries in all locale files in the same change, English as the key; never ship a string untranslated.
 - Keep API response messages in English only.
 
 ## Architectural Standards
