@@ -422,9 +422,10 @@ Rules of thumb — deviate knowingly, not by accident.
 - **Confirm what cannot be undone, and only that.** Cancel, Escape and a click outside all
   mean no.
 - **The whole control is the target**, not the words in it.
-- **Two tiers of action:** attention-worthy gets a tint, repeat actions stay neutral,
-  saturated brand colour is for one-off CTAs. Micro-controls stay small enough not to
-  compete with content.
+- **One CTA per focus surface** — whatever holds the user's whole attention, such as a
+  page or a modal; it is that surface's main action. Inside it, the main action gets a
+  tint, repeat actions stay neutral, destructive ones stay red. Micro-controls stay small
+  enough not to compete with content.
 - **Dropdowns over button rows** beyond three options.
 - **One thing open per row.** Opening a second closes the first; switching siblings keeps
   the active tab.
